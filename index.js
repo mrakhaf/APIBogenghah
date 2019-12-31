@@ -23,6 +23,4 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
-
-
 app.listen(PORT, () => console.log(`Running on localhost: ${PORT}`))
