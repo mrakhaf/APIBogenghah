@@ -88,7 +88,7 @@ router.delete('/:id', (req, res) => {
   }).then(result => {
     if (!result) {
       res.json({
-        msg: 'User not found'
+        msg: 'message not found'
       })
     } else {
       res

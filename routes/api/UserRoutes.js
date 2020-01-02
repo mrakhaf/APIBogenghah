@@ -16,6 +16,7 @@ router.put('/:id', (req, res) => {
         msg: 'Not found'
       })
     } else {
+      1
       User.update(
         req.body, {
           where: {
