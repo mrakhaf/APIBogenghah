@@ -4,35 +4,40 @@ const bcrypt = require('bcryptjs');
 
 
 
-
 const user = db.define('users', {
-  id_user: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    primaryKey: true
-  },
-  username: {
-    type: Sequelize.STRING,
-    unique: true,
-  },
-  password: {
-    type: Sequelize.TEXT
-  },
-  name: {
-    type: Sequelize.STRING,
-    notNull: true
-  },
-  email: {
-    type: Sequelize.STRING,
-    unique: true
-  }
-}, {
-  hooks: {
-    beforeValidate: hashPassword
-  },
-  timestamps: false
-})
+    id_user: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    username: {
+      type: Sequelize.STRING,
+      unique: true,
+    },
+    password: {
+      type: Sequelize.TEXT
+    },
+    name: {
+      type: Sequelize.STRING,
+      notNull: true
+    },
+    email: {
+      type: Sequelize.STRING,
+      unique: true
+    }
+  }, {
+    hooks: {
+      beforeValidate: hashPassword
+    },
+    timestamps: false
+  })
 
+  <<
+  << << < HEAD
+
+  ===
+  === = >>>
+  >>> > 136 c8aee9c246cc0ff931dad44e14c37a2422b51
 
 function hashPassword(user) {
   if (user.changed('password')) {
