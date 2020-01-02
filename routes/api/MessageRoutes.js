@@ -80,7 +80,25 @@ router.get('/:id', (req, res) => {
       })
     }
   })
+})
 
+router.delete('/:id', (req, res) => {
+  Message.destroy({
+      where: {
+        id_message: req.params.id
+      }
+    })
+    .then(result => {
+      if (!result) {
+        res.json({
+          msg: 'User not found'
+        })
+      } else {
+        res.json({
+          msg: 'Delete message has been successfully'
+        })
+      }
+    })
 })
 
 module.exports = router
