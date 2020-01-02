@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 
 
 
+
 const user = db.define('users', {
   id_user: {
     type: Sequelize.INTEGER,
@@ -31,6 +32,7 @@ const user = db.define('users', {
   },
   timestamps: false
 })
+
 
 function hashPassword(user) {
   if (user.changed('password')) {

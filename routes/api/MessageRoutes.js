@@ -15,21 +15,19 @@ router.post('/', (req, res) => {
       })
     } else {
       Message.create({
-          id_user: result.id_user,
-          content: req.body.content
+        id_user: result.id_user,
+        content: req.body.content
+      }).then(message => {
+        res.json({
+          data: {
+            msg: 'Send message Success',
+            to: message.id_user,
+            content: message.content
+          }
         })
-        .then((message) => {
-          res.json({
-            data: {
-              msg: 'Send message Success',
-              to: message.id_user,
-              content: message.content
-            }
-          })
-        })
+      })
     }
   })
-
 })
 
 // router.get('/', (req, res) => {
@@ -84,21 +82,22 @@ router.get('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   Message.destroy({
-      where: {
-        id_message: req.params.id
-      }
-    })
-    .then(result => {
-      if (!result) {
-        res.json({
-          msg: 'User not found'
-        })
-      } else {
-        res.json({
+    where: {
+      id_message: req.params.id
+    }
+  }).then(result => {
+    if (!result) {
+      res.json({
+        msg: 'User not found'
+      })
+    } else {
+      res
+        .json({
           msg: 'Delete message has been successfully'
         })
-      }
-    })
+        .status(200)
+    }
+  })
 })
 
 module.exports = router

@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const User = require('../../models/User')
+const Message = require('../../models/Message')
 
 
 router.put('/:id', (req, res) => {
@@ -27,8 +28,30 @@ router.put('/:id', (req, res) => {
       })
     }
   })
+})
 
-
+router.delete('/:id', (req, res) => {
+  Message.destroy({
+    where: {
+      id_user: req.params.id
+    }
+  })
+  User.destroy({
+      where: {
+        id_user: req.params.id
+      }
+    })
+    .then(result => {
+      if (!result) {
+        res.json({
+          msg: 'User not found'
+        })
+      } else {
+        res.json({
+          msg: 'Delete user has been successfully'
+        })
+      }
+    })
 })
 
 
