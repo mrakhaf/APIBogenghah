@@ -64,21 +64,20 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const id = req.params.id
   Message.findAll({
-      where: {
-        id_user: id
-      }
-    }).then(result => {
-      if (!result) {
-        res.json({
-          msg: 'No message'
-        })
-      } else {
-        res.json({
-          data: result
-        })
-      }
-    }) <<
-    << << < HEAD
+    where: {
+      id_user: id
+    }
+  }).then(result => {
+    if (!result) {
+      res.json({
+        msg: 'No message'
+      })
+    } else {
+      res.json({
+        data: result
+      })
+    }
+  })
 })
 
 router.delete('/:id', (req, res) => {
@@ -101,10 +100,4 @@ router.delete('/:id', (req, res) => {
   })
 })
 
-module.exports = router ===
-  === =
-
-})
-
-module.exports = router >>>
-  >>> > 136 c8aee9c246cc0ff931dad44e14c37a2422b51
+module.exports = router;

@@ -7,28 +7,27 @@ router.put('/:id', (req, res) => {
   const id = req.params.id
 
   User.findOne({
-      where: {
-        id_user: id
-      }
-    }).then(found => {
-      if (!found) {
-        res.json({
-          msg: 'Not found'
+    where: {
+      id_user: id
+    }
+  }).then(found => {
+    if (!found) {
+      res.json({
+        msg: 'Not found'
+      })
+    } else {
+      User.update(
+        req.body, {
+          where: {
+            id_user: id
+          }
         })
-      } else {
-        User.update(
-          req.body, {
-            where: {
-              id_user: id
-            }
-          })
-        res.json({
-          msg: 'success updated',
-          data: found.username
-        })
-      }
-    }) <<
-    << << < HEAD
+      res.json({
+        msg: 'success updated',
+        data: found.username
+      })
+    }
+  })
 })
 
 router.delete('/:id', (req, res) => {
@@ -52,12 +51,7 @@ router.delete('/:id', (req, res) => {
           msg: 'Delete user has been successfully'
         })
       }
-    }) ===
-    === =
-
-
-    >>>
-    >>> > 136 c8aee9c246cc0ff931dad44e14c37a2422b51
+    })
 })
 
 
